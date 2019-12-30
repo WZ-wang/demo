@@ -9,13 +9,19 @@ import InfoShow from './views/InfoShow.vue'
 import FoundList from './views/FoundList.vue'
 import userList from './views/user/userList.vue'
 import addComment from './views/comment/addComment.vue'
-import commentList from './views/comment/commentList.vue'
+import curriculumstable from './views/comment/commentList.vue'
+import Coursesadd from './views/comment/Coursesadd.vue'
 import feelList from './views/feel/feelList.vue'
 import focus from './views/focus/focus.vue'
+import exiftoolgui from './views/focus/exiftoolgui.vue'
+import testset from './views/focus/testset.vue'
 import msgList from './views/member/msgList.vue'
+import addmsp from './views/member/addmsp.vue'
 import addNews from './views/news/addNews.vue'
 import newsList from './views/news/newsList.vue'
-import reportList from './views/report/reportList.vue'
+import addUser from "./views/user/addUser.vue"
+import suggest from "./views/feel/suggest.vue"
+import title from "./views/focus/title.vue"
 
 Vue.use(Router)
 
@@ -55,14 +61,24 @@ const router = new Router({
           component: userList
         },
         {
+          path: '/addUser',
+          name: 'addUser',
+          component: addUser
+        },
+        {
           path: '/addcomment',
           name: 'addcomment',
           component: addComment
         },
         {
-          path: '/commentlist',
-          name: 'commentlist',
-          component: commentList
+          path: '/curriculumstable',
+          name: 'curriculumstable',
+          component: curriculumstable
+        },
+        {
+          path: '/Coursesadd',
+          name: 'Coursesadd',
+          component: Coursesadd
         },
         {
           path: '/feelList',
@@ -70,14 +86,39 @@ const router = new Router({
           component: feelList
         },
         {
+          path: '/suggest',
+          name: 'suggest',
+          component: suggest
+        },
+        {
           path: '/focus',
           name: 'focus',
           component: focus
         },
         {
+          path: '/exiftoolgui',
+          name: 'exiftoolgui',
+          component: exiftoolgui
+        },
+        {
+          path: '/testset',
+          name: 'testset',
+          component: testset
+        },
+        {
+          path: '/title',
+          name: 'title',
+          component: title
+        },
+        {
           path: '/msglist',
           name: 'msglist',
           component: msgList
+        },
+        {
+          path: '/addmsp',
+          name: 'addmsp',
+          component: addmsp
         },
         {
           path: '/addnews',
@@ -88,11 +129,6 @@ const router = new Router({
           path: '/newslist',
           name: 'newslist',
           component: newsList
-        },
-        {
-          path: '/reportlist',
-          name: 'reportlist',
-          component: reportList
         },
       ]
     },

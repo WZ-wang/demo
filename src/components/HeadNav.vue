@@ -1,18 +1,19 @@
-// 头部导航栏
+
 
 <template>
   <header class="head-nav">
     <el-row>
       <el-col :span="6" class="logo-container">
         <img src="../assets/logo.png" class="logo" alt />
-        <span class="title">资金后台管理系统</span>
+        <span class="title">后台管理系统</span>
       </el-col>
       <el-col :span="6" class="user">
-        <div class="userinfo">
-          <img :src="user.avatar" class="avatar" alt />
+        <div v-if="show" class="userinfo">
           <div class="welcome">
-            <p class="name comename">欢迎</p>
-            <p class="name avatarname">{{user.name}}</p>
+            <div>
+              <span style="fontSize:14px" class="name comename">欢迎 ,</span>
+              <span class="name avatarname"> {{user.name}}</span>
+            </div>
           </div>
           <span class="username">
             <el-dropdown trigger="click" @command="setDialogInfo">
@@ -26,6 +27,9 @@
             </el-dropdown>
           </span>
         </div>
+        <div v-else>
+          <p @click="$router.push('/login')">登录</p>
+        </div>
       </el-col>
     </el-row>
   </header>
@@ -33,20 +37,31 @@
 
 <script>
 export default {
-  name:"head-nav",
-  computed:{
-    user(){
+  name: "head-nav",
+  computed: {
+    user() {
       return this.$store.getters.user;
     }
   },
-  methods:{
-    setDialogInfo(cmditem){
-      if(!cmditem){
-        console.log("test");
+  created() {
+    if (Object.keys(this.$store.getters.user).length === 0) {
+      this.show = false;
+    } else {
+      this.show = true;
+    }
+  },
+  data() {
+    return {
+      show: false
+    };
+  },
+  methods: {
+    setDialogInfo(cmditem) {
+      if (!cmditem) {
         this.$message("菜单选项缺少command属性");
         return;
       }
-      switch(cmditem){
+      switch (cmditem) {
         case "info":
           this.showInfoList();
           break;
@@ -55,13 +70,13 @@ export default {
           break;
       }
     },
-    showInfoList(){
+    showInfoList() {
       // 个人信息
-      console.log("个人信息")
-      this.$router.push("/infoshow")
+      console.log("个人信息");
+      this.$router.push("/infoshow");
     },
-    logout(){
-      console.log("退出登录")
+    logout() {
+      console.log("退出登录");
       // 清除token
       localStorage.removeItem("eleToken");
       this.$store.dispatch("clearCurrentState");
@@ -69,7 +84,7 @@ export default {
       this.$router.push("/login");
     }
   }
-}
+};
 </script>
 
 

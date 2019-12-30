@@ -26,8 +26,8 @@ function endLoading() {
 axios.interceptors.request.use(config => {
   // 加载
   startLoading()
-  if (localStorage.eleToken)
-    config.headers.Authorization = localStorage.eleToken
+  // if (localStorage.eleToken)
+  //   config.headers.Authorization = localStorage.eleToken
   return config
 }, error => {
   return Promise.reject(error)

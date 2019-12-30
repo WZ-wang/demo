@@ -1,15 +1,44 @@
-// 总结列表
 
 <template>
-  <div>总结列表</div>
+  <div class="app-container">
+    <upload-excel-component :on-success="handleSuccess" :before-upload="beforeUpload"/>
+    <!-- <el-table :data="tableData" border highlight-current-row style="width: 100%;margin-top:20px;">
+      <el-table-column v-for="item of tableHeader" :prop="item" :label="item" :key="item"/>
+    </el-table> -->
+  </div>
 </template>
-
+ 
 <script>
+import UploadExcelComponent from '@/components/UploadExcel/index.vue'
 export default {
-  name: "feelList",
-  data: {}
-};
+  name: 'UploadExcel',
+  components: { UploadExcelComponent },
+  data() {
+    return {
+      tableData: [],
+      tableHeader: []
+    }
+  },
+  methods: {
+    // 文件读取前执行
+    beforeUpload(file) {
+      // 取文件大小，限制文件大小超过1mb
+      const isLt1M = file.size / 1024 / 1024 < 1
+      if (isLt1M) {
+        return true
+      }
+      this.$message({
+        message: '上传的Excel文件不能大于1mb.',
+        type: 'warning'
+      })
+      return false
+    },
+    // 文件读取后执行
+    handleSuccess({ results, header }) {
+      this.tableData = results
+      this.tableHeader = header
+      console.log(this.tableData)
+    }
+  }
+}
 </script>
-
-<style>
-</style>

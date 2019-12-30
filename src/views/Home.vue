@@ -3,8 +3,7 @@
 <template>
   <div class="home">
     <div class="container">
-      <h1 class="title">资金管理</h1>
-      <p class="lead">这是一个资金管理cms</p>
+      <p class="lead">这是一个后台管理系统cms</p>
     </div>
   </div>
 </template>
