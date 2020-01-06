@@ -65,7 +65,7 @@
       </el-form-item>
       <div class="line"></div>
       <h1>课程上传</h1>
-      <el-form-item label="文件上传" prop="name">
+      <!-- <el-form-item label="文件上传" prop="name">
         <el-upload
           action="/api/user/cupload"
           list-type="picture-card"
@@ -76,7 +76,7 @@
           <i class="el-icon-plus"></i>
         </el-upload>
         <span>单个文件上传不超过1500M</span>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="下载说明" prop="ement">
         <el-upload
           class="upload-demo"

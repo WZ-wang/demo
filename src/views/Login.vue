@@ -64,6 +64,7 @@ export default {
           this.$axios
             .post("/api/user/logins", userInfo)
             .then(res => {
+              console.log(res)
               // 登录成功
               // const { token } = res.data;
               // console.log(res)
