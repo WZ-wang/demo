@@ -53,7 +53,7 @@
         </el-select>
       </el-form-item>
       <!-- 身份是超级管理员 -->
-      <el-form-item label="班级" v-if="userInfo.dentity == '超级管理员'&& userData.dentity == '老师'" prop="clazz">
+      <el-form-item label="班级" v-show="userInfo.dentity == '超级管理员' && userData.dentity == '老师'" prop="clazz">
         <el-checkbox-group v-model="classList">
           <el-checkbox
             v-for="(item,index) in classData"
@@ -62,7 +62,6 @@
           >{{item.sname}}</el-checkbox>
         </el-checkbox-group>
       </el-form-item>
-
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">立即创建</el-button>
         <el-button type="primary" style="margin-left:25px" @click="isShow=true">批量导入</el-button>

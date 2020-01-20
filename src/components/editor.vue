@@ -18,6 +18,7 @@ export default {
   mounted() {
     this.editor = new E(this.$refs.editorElem);
     // 编辑器的事件，每次改变会获取其html内容
+     this.editor.customConfig.uploadImgShowBase64 = true
     // this.editor.customConfig.uploadImgServer = '/api/upload' 
     this.editor.customConfig.onchange = html => {
       this.editorContent = html;

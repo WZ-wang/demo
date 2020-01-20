@@ -9,11 +9,9 @@ import jwt_decode from "jwt-decode";
 export default {
   name:"app",
   created(){
-    if(localStorage.eleToken){
-      const decode = jwt_decode(localStorage.eleToken);
-      this.$store.dispatch("setIsAutnenticated",!this.isEmpty(decode));
-      this.$store.dispatch("setUser",decode);
-    }
+    // if(localStorage.eleToken){
+    //   this.$store.dispatch("setUser",localStorage.eleToken);
+    // }
   },
   methods:{
     isEmpty(value) {

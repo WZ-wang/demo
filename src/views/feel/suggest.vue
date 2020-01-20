@@ -1,11 +1,11 @@
 <template>
   <div>
     沟通反馈
-        <Editor :catchData="catchData"></Editor>
+    <Editor :catchData="catchData"></Editor>
     <button @click="gets">get</button>
-    <!-- <div v-html="pData.content">
-
-    </div> -->
+    <div>
+      <div v-html="pData.content"></div>
+    </div>
   </div>
 </template>
 
